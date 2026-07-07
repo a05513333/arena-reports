@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>股票擂台 · 報告總覽</title><style>
+body{font-family:"Segoe UI","Microsoft JhengHei",sans-serif;background:#0d1117;color:#e6edf3;
+display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:24px}
+.card{background:#161b22;border:1px solid #2a3548;border-radius:14px;padding:40px 36px;
+max-width:380px;width:100%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.lock{font-size:40px;margin-bottom:12px}
+h1{font-size:19px;color:#6DE3EA;margin:0 0 6px}
+.hint{color:#8b98ab;font-size:13.5px;margin:0 0 22px}
+input{width:100%;box-sizing:border-box;background:#0d1117;border:1px solid #2a3548;border-radius:8px;
+color:#e6edf3;font-size:16px;padding:11px 14px;margin-bottom:12px;outline:none}
+input:focus{border-color:#50D8FF}
+button{width:100%;background:#1f6feb;color:#fff;border:none;border-radius:8px;
+font-size:15.5px;font-weight:600;padding:11px;cursor:pointer}
+button:hover{background:#2f81f7}
+#err{color:#ff7b72;font-size:13px;min-height:18px;margin:10px 0 0}
+</style></head><body>
+<div class="card">
+  <div class="lock">&#128274;</div>
+  <h1>股票擂台 · 報告總覽</h1>
+  <p class="hint">本頁內容已加密，請輸入密碼檢視</p>
+  <form id="f">
+    <input id="pw" type="password" placeholder="密碼" autocomplete="current-password" autofocus>
+    <button type="submit">解鎖</button>
+  </form>
+  <p id="err"></p>
+</div>
+<script>
+const P={s:"aMj0Bt0ZqC3FGyR6XjNwUg==",i:"RDrM/nbkjXABDqWN",c:"EtMXnduitBFKN/vEOY1CSQZaKTYagurNaLAyklsSz2gFDiV+f1PjZfJ47DGw0hlLwwyIBtYBDAWaBRDFATR9Ppp9LkbL/OAu8/R2VADIluYFw7BfUChYThuAsUA07kdsewawzN0FskI3kgbZ7F9s8ddhn/gFOI8k2dQzSP5oEVb1HdpVd2K+ZdbuRdtcEDSJQsawwk5G/H8IQv7wLoVls5mJnPs6ObvzDu3+L94qnB/AW8ZIF9cd3tD7gYTahiKN/ZWMt9eVUJ5/CZoQd0lHlsWAwaXLwxTZkiniEWG+3DL2TyYH385lfycq1PLy7UkHzjMR4eNxG0R3CKbutdMz4dntF44IzViHdCkPKGgGraqIte1v1+6ApXkjBksXihj0XJgzDlX9UN9LfmRgfowYHH3urFKLB1ZTc5BXnxy0yLMy3LVu8IpigAnwi16ckL78GJShE0/U2FIFdypp3Dd/I/rCvO3xoYgA3qw7GjAS4S6JqcOCuubvYNCItgJnYV6NulDSqZc0OzxeMEOg8pRN+ybN3EdvB6AVKJBLX+nkN+KLeULMMWHVvWoW/DXwHKA7uIHwbe4zVMkyurBv1oJLxOpRy2524syFs6X/6e29pKPG7IYG9mz1WLGxS1B156yg2M1QS24yb8CxE97iKt1vGTYeTaHjK8gozZvE7e5pl3AN6EEKiXOzcM30f6dVqVTTvkQp811aktXHIQnw4NdlNGgyx21S8jPVaBqLWrpcpOtoP6E421tE9oI99lHCSV2ZjLgM+ieRIM+Z4fL6ZgXN6hKhCYiVe4aTcxozl/cm8loZ2oUoGsUNIcDXW8HYYXPy7SEFcfcJL6UWP7h49Ld/NueRYT1smiRPMU/gTljMxJWVVX5zFPAkQl/Srte7msMAl4nO/7XWfuwk9RWyjsu7Jgse+7HpkTJkaG4TFko3wOl6bWBDBaIsn4wdi5xL2tSiNTPjR+opUdGogAu+04ufbk9MwDt3uPwp2qJt5KCrBLcsqvp6NSjw3jQIEw9YChFB6Qfr0Xl9ItiGsnTURwp471msYp8NdgCwRCu4C2zXyIsSfyBf0HefIksj9yj4s52XGuZEenHqMGHH4m+zeaNn9ClT+M+Rd4OZFUXqn21YDuO6TELUIB+PowoWaZxoNqRZDiNNr1sbex41x/g5nwhQoAMut97aNkglnYY1IIme6gQbQGd/YbW4iv2NZ2rpm3Kf56IZGp4JQwFbdMHVxIT9Qb6Ppuw4TF1Wd2hgKwzqKVekj+LtGg/ECdJEX2nupsxqz6JEBHnql0aWTdpf/eGz4JMevVPkZPp0Y0yAG1GNCM+DzTZEik1I9KhEDW51qLoHfGPJ/LEWJzbcisyJCMFL8B3vfICSlXksxWIhnhCClb/EWYCI8XkUsoDQqD0Eb5Ndzy1gh2xjs3Ryzz3KcQSrGqv+UoNnIAUMpl+CvYyZFfn7aq1OBhN9+8OTJn86WjXPh8G9vJmB4nCG4xsIJQD1mkdWphFt0WiLt96trWnvrU66gKKRIWYzfYe+E37Z44ize5s3TG1Ol2liX5ZdPi7WM5lnUiT7TjLTAg7H63PdhJ/hWiHL0MAGSXAdDbxOWQMbmM5xWabegR0+W+QMIfOIh4vrch6NEbkI4qzhf3StjbI+k6m4TWtUF/okmfnZSCt2wSXk30oExCEddqgv5lqVfphqzCdpkL6HcUaQ7lABN9omZ6imGs9odrhQOtHZarFmIQU9d5LxQ1NJfL8eMJVIP9RQqUFbc1VOqemJAoNGoXo5+/zIdvxNwlhcXK83TUSTiBmmxPRkw56BAj652xc="};
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function dec(pw){
+  const km=await crypto.subtle.importKey("raw",new TextEncoder().encode(pw),"PBKDF2",false,["deriveKey"]);
+  const key=await crypto.subtle.deriveKey(
+    {name:"PBKDF2",salt:b64(P.s),iterations:600000,hash:"SHA-256"},
+    km,{name:"AES-GCM",length:256},false,["decrypt"]);
+  const pt=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64(P.i)},key,b64(P.c));
+  return new TextDecoder().decode(pt);
+}
+async function go(pw,fromSaved){
+  const err=document.getElementById("err");
+  if(!fromSaved)err.textContent="解密中…";
+  try{
+    const html=await dec(pw);
+    sessionStorage.setItem("arena_pw",pw);
+    document.open();document.write(html);document.close();
+  }catch(e){
+    sessionStorage.removeItem("arena_pw");
+    if(!fromSaved)err.textContent="密碼錯誤，請再試一次";
+  }
+}
+document.getElementById("f").addEventListener("submit",e=>{
+  e.preventDefault();go(document.getElementById("pw").value,false);});
+const saved=sessionStorage.getItem("arena_pw");
+if(saved)go(saved,true);
+</script></body></html>
